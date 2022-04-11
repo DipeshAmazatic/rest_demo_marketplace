@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.6"
+
+cache:
+  - directories:
+      - "$HOME/.cache/pip"
+      - "$HOME/.cache/wily"
+
+install:
+  - pip install -r requirements/travis.txt
+
+script:
+  - wily build src -a filesystem
+  - python travis.py
